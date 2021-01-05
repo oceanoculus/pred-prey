@@ -24,7 +24,11 @@ prm <- t1 - t2 #how many papers removed
 8 papers removed as not original research
 97 papers remaining
 
+<<<<<<< HEAD
 ```{r remove papers that didnt inc pred-prey spatial interaction}
+=======
+```{r remove papers that didn't inc pred-prey spatial interaction}
+>>>>>>> 0ce0cfccc6433f6368a0689fda309407126b1798
 lrev <- subset(lrev, Does.it.include.predator.prey.interaction.and.distribution == "yes")
 t3 <- nrow(lrev) #how many papers remaining
 prm <- t2 - t3 #how many papers removed
