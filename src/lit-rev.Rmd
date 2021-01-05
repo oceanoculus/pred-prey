@@ -40,10 +40,69 @@ prm <- t2 - t3 #how many papers removed
 ```{r are studies land or water based?}
 lw <- with(lrev, table(marine..terrestrial..fw))
 write.csv(lw, file = "./output/land-water-count.csv")
+ggplot(lrev, aes(marine..terrestrial..fw)) + geom_bar() + theme_classic () + labs(x = "Study Location", y = "No. Studies")
+```
 
+```{r spatial scale}
+lw <- with(lrev, table(Spatial.Scale))
+write.csv(lw, file = "./output/spatial-scale.csv")
+ggplot(lrev, aes(Spatial.Scale)) + geom_bar() + theme_classic () + labs(x = "Spatial Scale", y = "No. Studies")
+```
+
+```{r region}
+lw <- with(lrev, table(Region))
+write.csv(lw, file = "./output/region.csv")
+ggplot(lrev, aes(Region)) + geom_bar() + theme_classic () + labs(x = "Region", y = "No. Studies")
+```
+
+```{r model approach}
+lw <- with(lrev, table(Model.Approach))
+write.csv(lw, file = "./output/model-approach.csv")
+ggplot(lrev, aes(Model.Approach)) + geom_bar() + theme_classic () + labs(x = "Model Approach", y = "No. Studies")
+```
+
+```{r Model Type simplifed}
+lw <- with(lrev, table(ModelTypeSimple))
+write.csv(lw, file = "./output/ModelTypeSimple.csv")
+ggplot(lrev, aes(ModelTypeSimple)) + geom_bar() + theme_classic () + labs(x = "Model Type", y = "No. Studies") + theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+```{r Model Algorithm}
+malg <- read.csv("./data/model-alg-simple.csv", header = TRUE, stringsAsFactors = FALSE) #models split to one per entry
+lw <- with(malg, table(ModelAlgorithmSimple))
+write.csv(lw, file = "./output/ModelAlgorithmSimple.csv")
+ggplot(malg, aes(ModelAlgorithmSimple)) + geom_bar() + theme_classic () + labs(x = "Model Algorithm", y = "No. Studies") + coord_flip()
+```
+```{r predator class}
+malg <- read.csv("./data/pred-preyclass-simple.csv", header = TRUE, stringsAsFactors = FALSE) #models split to one per entry
+lw <- with(malg, table(PredatorClass))
+write.csv(lw, file = "./output/PredClass.csv")
+ggplot(malg, aes(PredatorClass)) + geom_bar() + theme_classic () + labs(x = "Predator Class", y = "No. Studies") + theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+```{r predator data}
+lw <- with(lrev, table(PredatorDatatypeSimple))
+write.csv(lw, file = "./output/PredDataSimple.csv")
+ggplot(lrev, aes(PredatorDatatypeSimple)) + geom_bar() + theme_classic () + labs(x = "Predator Data", y = "No. Studies") + coord_flip()
 ```
 
 
+```{r prey class}
+malg <- read.csv("./data/pred-preyclass-simple.csv", header = TRUE, stringsAsFactors = FALSE) #models split to one per entry
+lw <- with(malg, table(PredatorClass))
+write.csv(lw, file = "./output/PreyClass.csv")
+ggplot(malg, aes(PredatorClass)) + geom_bar() + theme_classic () + labs(x = "Prey Class", y = "No. Studies") + theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
 
+```{r prey data}
+lw <- with(lrev, table(PreyDataTypeSimple))
+write.csv(lw, file = "./output/PreyDataSimple.csv")
+ggplot(lrev, aes(PreyDataTypeSimple)) + geom_bar() + theme_classic () + labs(x = "Prey Data", y = "No. Studies") + coord_flip()
+```
 
+```{r prey-pred or pred-prey}
+lw <- with(lrev, table(predator.impact.on.prey.or.prey.impacton.on.both))
+write.csv(lw, file = "./output/Prey-pred-int.csv")
+ggplot(lrev, aes(predator.impact.on.prey.or.prey.impacton.on.both)) + geom_bar() + theme_classic () + labs(x = "Who Drives Who", y = "No. Studies")
+```
 
