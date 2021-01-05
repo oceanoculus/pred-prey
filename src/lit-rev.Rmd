@@ -3,9 +3,13 @@ title: "lit-rev"
 output: html_notebook
 ---
 
-This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+lit review quick exploration 
 
-Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+```{r pre-install packages, include=FALSE}
+packages <- c("ggplot2") 
+source("./src/ipak.R")
+ipak(packages)
+```
 
 ```{r load raw data}
 lrev <- read.csv("./data/sdm-lit-44papers.csv", header = TRUE, stringsAsFactors = FALSE)
@@ -24,11 +28,7 @@ prm <- t1 - t2 #how many papers removed
 8 papers removed as not original research
 97 papers remaining
 
-<<<<<<< HEAD
 ```{r remove papers that didnt inc pred-prey spatial interaction}
-=======
-```{r remove papers that didn't inc pred-prey spatial interaction}
->>>>>>> 0ce0cfccc6433f6368a0689fda309407126b1798
 lrev <- subset(lrev, Does.it.include.predator.prey.interaction.and.distribution == "yes")
 t3 <- nrow(lrev) #how many papers remaining
 prm <- t2 - t3 #how many papers removed
@@ -36,4 +36,14 @@ prm <- t2 - t3 #how many papers removed
 
 47 papers removed as didn't inc pred-prey spatial interaction
 50 papers remaining
+
+```{r are studies land or water based?}
+lw <- with(lrev, table(marine..terrestrial..fw))
+write.csv(lw, file = "./output/land-water-count.csv")
+
+```
+
+
+
+
 

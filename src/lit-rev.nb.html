@@ -1749,57 +1749,55 @@ summary {
 
 
 <!-- rnb-text-begin -->
-<p>This is an <a href="http://rmarkdown.rstudio.com">R Markdown</a> Notebook. When you execute code within the notebook, the results appear beneath the code.</p>
-<p>Try executing this chunk by clicking the <em>Run</em> button within the chunk or by placing your cursor inside it and pressing <em>Ctrl+Shift+Enter</em>.</p>
+<p>lit review quick exploration</p>
+<!-- rnb-text-end -->
+<!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<<<<<<< HEAD
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubHJldiA8LSByZWFkLmNzdihcIi4vZGF0YS9zZG0tbGl0LTQ0cGFwZXJzLmNzdlwiLCBoZWFkZXIgPSBUUlVFLCBzdHJpbmdzQXNGYWN0b3JzID0gRkFMU0UpXG5scmV2IDwtIGxyZXZbIWlzLm5hKGxyZXYkWWVhciksIF0gI3JlbW92ZSBhbnkgcm93cyB3aXRoIG5vIGRhdGFcbnRvdGFscyA8LSBucm93KGxyZXYpICNob3cgbWFueSBwYXBlcnMgZGlkIHRoZSBzZWFyY2ggZmluZFxuYGBgIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubHJldiA8LSByZWFkLmNzdihcIi4vZGF0YS9zZG0tbGl0LTQ0cGFwZXJzLmNzdlwiLCBoZWFkZXIgPSBUUlVFLCBzdHJpbmdzQXNGYWN0b3JzID0gRkFMU0UpXG5scmV2IDwtIGxyZXZbIWlzLm5hKGxyZXYkWWVhciksIF0gI3JlbW92ZSBhbnkgcm93cyB3aXRoIG5vIGRhdGFcbnQxIDwtIG5yb3cobHJldikgI2hvdyBtYW55IHBhcGVycyBkaWQgdGhlIHNlYXJjaCBmaW5kXG5gYGAifQ== -->
 <pre class="r"><code>lrev &lt;- read.csv(&quot;./data/sdm-lit-44papers.csv&quot;, header = TRUE, stringsAsFactors = FALSE)
 lrev &lt;- lrev[!is.na(lrev$Year), ] #remove any rows with no data
-totals &lt;- nrow(lrev) #how many papers did the search find</code></pre>
+t1 &lt;- nrow(lrev) #how many papers did the search find</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>There are a total of 105 papers</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudW5pcXVlKGxyZXYkcmV2aWV3Li5jb21tZW50Li5vcGluaW9uLi5ub3QuYW4uYXJ0aWNsZS4pXG5cbmBgYCJ9 -->
-<pre class="r"><code>unique(lrev$review..comment..opinion..not.an.article.)
-</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubHJldiA8LSBzdWJzZXQobHJldiwgcmV2aWV3Li5jb21tZW50Li5vcGluaW9uLi5ub3QuYW4uYXJ0aWNsZS4gPT0gXCJub1wiKVxudDIgPC0gbnJvdyhscmV2KSAjaG93IG1hbnkgcGFwZXJzIHJlbWFpbmluZ1xucHJtIDwtIHQxIC0gdDIgI2hvdyBtYW55IHBhcGVycyByZW1vdmVkXG5gYGAifQ== -->
+<pre class="r"><code>lrev &lt;- subset(lrev, review..comment..opinion..not.an.article. == &quot;no&quot;)
+t2 &lt;- nrow(lrev) #how many papers remaining
+prm &lt;- t1 - t2 #how many papers removed</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwieWVzXCIgICAgICAgICAgXCJ0aGVvcmV0aWNhbOKAplwiIFwicmV2aWV3XCIgICAgICAgXCJub1wiICAgICAgICAgICBcImRhdGEgcGFwZXJcIiAgXG4ifQ== -->
-<pre><code>[1] &quot;yes&quot;          &quot;theoretical…&quot; &quot;review&quot;       &quot;no&quot;           &quot;data paper&quot;  </code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>8 papers removed as not original research 97 papers remaining</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubHJldiA8LSBzdWJzZXQobHJldiREb2VzLml0LmluY2x1ZGUucHJlZGF0b3IucHJleS5pbnRlcmFjdGlvbi5hbmQuZGlzdHJpYnV0aW9uID09IFwieWVzXCIpXG5cbmBgYCJ9 -->
-<pre class="r"><code>lrev &lt;- subset(lrev$Does.it.include.predator.prey.interaction.and.distribution == &quot;yes&quot;)
-</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubHJldiA8LSBzdWJzZXQobHJldiwgRG9lcy5pdC5pbmNsdWRlLnByZWRhdG9yLnByZXkuaW50ZXJhY3Rpb24uYW5kLmRpc3RyaWJ1dGlvbiA9PSBcInllc1wiKVxudDMgPC0gbnJvdyhscmV2KSAjaG93IG1hbnkgcGFwZXJzIHJlbWFpbmluZ1xucHJtIDwtIHQyIC0gdDMgI2hvdyBtYW55IHBhcGVycyByZW1vdmVkXG5gYGAifQ== -->
+<pre class="r"><code>lrev &lt;- subset(lrev, Does.it.include.predator.prey.interaction.and.distribution == &quot;yes&quot;)
+t3 &lt;- nrow(lrev) #how many papers remaining
+prm &lt;- t2 - t3 #how many papers removed</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gc3Vic2V0LmRlZmF1bHQobHJldiREb2VzLml0LmluY2x1ZGUucHJlZGF0b3IucHJleS5pbnRlcmFjdGlvbi5hbmQuZGlzdHJpYnV0aW9uID09ICA6IFxuICBhcmd1bWVudCBcInN1YnNldFwiIGlzIG1pc3NpbmcsIHdpdGggbm8gZGVmYXVsdFxuIn0= -->
-<pre><code>Error in subset.default(lrev$Does.it.include.predator.prey.interaction.and.distribution ==  : 
-  argument &quot;subset&quot; is missing, with no default</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>47 papers removed as didn’t inc pred-prey spatial interaction 50 papers remaining</p>
 <!-- rnb-text-end -->
-
-<div id="rmd-source-code">LS0tDQp0aXRsZTogImxpdC1yZXYiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpUaGlzIGlzIGFuIFtSIE1hcmtkb3duXShodHRwOi8vcm1hcmtkb3duLnJzdHVkaW8uY29tKSBOb3RlYm9vay4gV2hlbiB5b3UgZXhlY3V0ZSBjb2RlIHdpdGhpbiB0aGUgbm90ZWJvb2ssIHRoZSByZXN1bHRzIGFwcGVhciBiZW5lYXRoIHRoZSBjb2RlLiANCg0KVHJ5IGV4ZWN1dGluZyB0aGlzIGNodW5rIGJ5IGNsaWNraW5nIHRoZSAqUnVuKiBidXR0b24gd2l0aGluIHRoZSBjaHVuayBvciBieSBwbGFjaW5nIHlvdXIgY3Vyc29yIGluc2lkZSBpdCBhbmQgcHJlc3NpbmcgKkN0cmwrU2hpZnQrRW50ZXIqLiANCg0KYGBge3IgbG9hZCByYXcgZGF0YX0NCmxyZXYgPC0gcmVhZC5jc3YoIi4vZGF0YS9zZG0tbGl0LTQ0cGFwZXJzLmNzdiIsIGhlYWRlciA9IFRSVUUsIHN0cmluZ3NBc0ZhY3RvcnMgPSBGQUxTRSkNCmxyZXYgPC0gbHJldlshaXMubmEobHJldiRZZWFyKSwgXSAjcmVtb3ZlIGFueSByb3dzIHdpdGggbm8gZGF0YQ0KdDEgPC0gbnJvdyhscmV2KSAjaG93IG1hbnkgcGFwZXJzIGRpZCB0aGUgc2VhcmNoIGZpbmQNCmBgYA0KDQpUaGVyZSBhcmUgYSB0b3RhbCBvZiAxMDUgcGFwZXJzDQoNCmBgYHtyIHJlbW92ZSBub24tc3VpdGFibGUgc3R1ZGllc30NCmxyZXYgPC0gc3Vic2V0KGxyZXYsIHJldmlldy4uY29tbWVudC4ub3Bpbmlvbi4ubm90LmFuLmFydGljbGUuID09ICJubyIpDQp0MiA8LSBucm93KGxyZXYpICNob3cgbWFueSBwYXBlcnMgcmVtYWluaW5nDQpwcm0gPC0gdDEgLSB0MiAjaG93IG1hbnkgcGFwZXJzIHJlbW92ZWQNCmBgYA0KDQo4IHBhcGVycyByZW1vdmVkIGFzIG5vdCBvcmlnaW5hbCByZXNlYXJjaA0KOTcgcGFwZXJzIHJlbWFpbmluZw0KDQpgYGB7ciByZW1vdmUgcGFwZXJzIHRoYXQgZGlkbnQgaW5jIHByZWQtcHJleSBzcGF0aWFsIGludGVyYWN0aW9ufQ0KbHJldiA8LSBzdWJzZXQobHJldiwgRG9lcy5pdC5pbmNsdWRlLnByZWRhdG9yLnByZXkuaW50ZXJhY3Rpb24uYW5kLmRpc3RyaWJ1dGlvbiA9PSAieWVzIikNCnQzIDwtIG5yb3cobHJldikgI2hvdyBtYW55IHBhcGVycyByZW1haW5pbmcNCnBybSA8LSB0MiAtIHQzICNob3cgbWFueSBwYXBlcnMgcmVtb3ZlZA0KYGBgDQoNCjQ3IHBhcGVycyByZW1vdmVkIGFzIGRpZG4ndCBpbmMgcHJlZC1wcmV5IHNwYXRpYWwgaW50ZXJhY3Rpb24NCjUwIHBhcGVycyByZW1haW5pbmcNCg0K</div>
-=======
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGxvdChjYXJzKVxuYGBgIn0= -->
-<pre class="r"><code>plot(cars)</code></pre>
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubHdcblxuYGBgIn0= -->
+<pre class="r"><code>lw
+</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoibWFyaW5lLi50ZXJyZXN0cmlhbC4uZndcbiAgICAgICAgZnJlc2h3YXRlciAgICAgICAgICAgICBtYXJpbmUgICAgICAgIHRlcnJlc3RyaWFsIHRlcnJlc3RyaWFsL21hcmluZSBcbiAgICAgICAgICAgICAgICAgMSAgICAgICAgICAgICAgICAgMTQgICAgICAgICAgICAgICAgIDM0ICAgICAgICAgICAgICAgICAgMSBcbiJ9 -->
+<pre><code>marine..terrestrial..fw
+        freshwater             marine        terrestrial terrestrial/marine 
+                 1                 14                 34                  1 </code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogImxpdC1yZXYiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpUaGlzIGlzIGFuIFtSIE1hcmtkb3duXShodHRwOi8vcm1hcmtkb3duLnJzdHVkaW8uY29tKSBOb3RlYm9vay4gV2hlbiB5b3UgZXhlY3V0ZSBjb2RlIHdpdGhpbiB0aGUgbm90ZWJvb2ssIHRoZSByZXN1bHRzIGFwcGVhciBiZW5lYXRoIHRoZSBjb2RlLiANCg0KVHJ5IGV4ZWN1dGluZyB0aGlzIGNodW5rIGJ5IGNsaWNraW5nIHRoZSAqUnVuKiBidXR0b24gd2l0aGluIHRoZSBjaHVuayBvciBieSBwbGFjaW5nIHlvdXIgY3Vyc29yIGluc2lkZSBpdCBhbmQgcHJlc3NpbmcgKkN0cmwrU2hpZnQrRW50ZXIqLiANCg0KYGBge3J9DQpwbG90KGNhcnMpDQpgYGANCg0K</div>
->>>>>>> 0ce0cfccc6433f6368a0689fda309407126b1798
+<div id="rmd-source-code">LS0tDQp0aXRsZTogImxpdC1yZXYiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpsaXQgcmV2aWV3IHF1aWNrIGV4cGxvcmF0aW9uIA0KDQpgYGB7ciBwcmUtaW5zdGFsbCBwYWNrYWdlcywgaW5jbHVkZT1GQUxTRX0NCnBhY2thZ2VzIDwtIGMoImdncGxvdDIiKSANCnNvdXJjZSgiLi9zcmMvaXBhay5SIikNCmlwYWsocGFja2FnZXMpDQpgYGANCg0KYGBge3IgbG9hZCByYXcgZGF0YX0NCmxyZXYgPC0gcmVhZC5jc3YoIi4vZGF0YS9zZG0tbGl0LTQ0cGFwZXJzLmNzdiIsIGhlYWRlciA9IFRSVUUsIHN0cmluZ3NBc0ZhY3RvcnMgPSBGQUxTRSkNCmxyZXYgPC0gbHJldlshaXMubmEobHJldiRZZWFyKSwgXSAjcmVtb3ZlIGFueSByb3dzIHdpdGggbm8gZGF0YQ0KdDEgPC0gbnJvdyhscmV2KSAjaG93IG1hbnkgcGFwZXJzIGRpZCB0aGUgc2VhcmNoIGZpbmQNCmBgYA0KDQpUaGVyZSBhcmUgYSB0b3RhbCBvZiAxMDUgcGFwZXJzDQoNCmBgYHtyIHJlbW92ZSBub24tc3VpdGFibGUgc3R1ZGllc30NCmxyZXYgPC0gc3Vic2V0KGxyZXYsIHJldmlldy4uY29tbWVudC4ub3Bpbmlvbi4ubm90LmFuLmFydGljbGUuID09ICJubyIpDQp0MiA8LSBucm93KGxyZXYpICNob3cgbWFueSBwYXBlcnMgcmVtYWluaW5nDQpwcm0gPC0gdDEgLSB0MiAjaG93IG1hbnkgcGFwZXJzIHJlbW92ZWQNCmBgYA0KDQo4IHBhcGVycyByZW1vdmVkIGFzIG5vdCBvcmlnaW5hbCByZXNlYXJjaA0KOTcgcGFwZXJzIHJlbWFpbmluZw0KDQpgYGB7ciByZW1vdmUgcGFwZXJzIHRoYXQgZGlkbnQgaW5jIHByZWQtcHJleSBzcGF0aWFsIGludGVyYWN0aW9ufQ0KbHJldiA8LSBzdWJzZXQobHJldiwgRG9lcy5pdC5pbmNsdWRlLnByZWRhdG9yLnByZXkuaW50ZXJhY3Rpb24uYW5kLmRpc3RyaWJ1dGlvbiA9PSAieWVzIikNCnQzIDwtIG5yb3cobHJldikgI2hvdyBtYW55IHBhcGVycyByZW1haW5pbmcNCnBybSA8LSB0MiAtIHQzICNob3cgbWFueSBwYXBlcnMgcmVtb3ZlZA0KYGBgDQoNCjQ3IHBhcGVycyByZW1vdmVkIGFzIGRpZG4ndCBpbmMgcHJlZC1wcmV5IHNwYXRpYWwgaW50ZXJhY3Rpb24NCjUwIHBhcGVycyByZW1haW5pbmcNCg0KYGBge3IgYXJlIHN0dWRpZXMgbGFuZCBvciB3YXRlciBiYXNlZD99DQpsdyA8LSB3aXRoKGxyZXYsIHRhYmxlKG1hcmluZS4udGVycmVzdHJpYWwuLmZ3KSkNCndyaXRlLmNzdihsdywgZmlsZSA9ICIuL291dHB1dC9sYW5kLXdhdGVyLWNvdW50LmNzdiIpDQoNCmBgYA0KDQoNCg0KDQoNCg==</div>
 
 
 
