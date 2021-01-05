@@ -1,0 +1,320 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={lit-rev},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\title{lit-rev}
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+\maketitle
+
+lit review quick exploration.
+
+Search done in Web of Science
+
+Search term used:
+
+TS = (``species distribution'' AND model AND predator AND prey) *TS =
+topic search
+
+\hypertarget{load-data-and-remove-inapporpriate-studies}{%
+\section{Load data and remove inapporpriate
+studies}\label{load-data-and-remove-inapporpriate-studies}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lrev <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"./data/sdm-lit-44papers.csv"}\NormalTok{, }\DataTypeTok{header =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{stringsAsFactors =} \OtherTok{FALSE}\NormalTok{)}
+\NormalTok{lrev <-}\StringTok{ }\NormalTok{lrev[}\OperatorTok{!}\KeywordTok{is.na}\NormalTok{(lrev}\OperatorTok{$}\NormalTok{Year), ] }\CommentTok{#remove any rows with no data}
+\NormalTok{t1 <-}\StringTok{ }\KeywordTok{nrow}\NormalTok{(lrev) }\CommentTok{#how many papers did the search find}
+\end{Highlighting}
+\end{Shaded}
+
+There are a total of 105 papers
+
+\hypertarget{remove-studies-that-arent-origianl-research}{%
+\subsection{remove studies that aren't origianl
+research}\label{remove-studies-that-arent-origianl-research}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lrev <-}\StringTok{ }\KeywordTok{subset}\NormalTok{(lrev, review..comment..opinion..not.an.article. }\OperatorTok{==}\StringTok{ "no"}\NormalTok{)}
+\NormalTok{t2 <-}\StringTok{ }\KeywordTok{nrow}\NormalTok{(lrev) }\CommentTok{#how many papers remaining}
+\NormalTok{prm <-}\StringTok{ }\NormalTok{t1 }\OperatorTok{-}\StringTok{ }\NormalTok{t2 }\CommentTok{#how many papers removed}
+\end{Highlighting}
+\end{Shaded}
+
+8 papers removed as not original research 97 papers remaining
+
+\hypertarget{remove-studies-that-dont-include-a-predator-prey-spatial-interaction}{%
+\subsection{remove studies that don't include a predator-prey spatial
+interaction}\label{remove-studies-that-dont-include-a-predator-prey-spatial-interaction}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lrev <-}\StringTok{ }\KeywordTok{subset}\NormalTok{(lrev, Does.it.include.predator.prey.interaction.and.distribution }\OperatorTok{==}\StringTok{ "yes"}\NormalTok{)}
+\NormalTok{t3 <-}\StringTok{ }\KeywordTok{nrow}\NormalTok{(lrev) }\CommentTok{#how many papers remaining}
+\NormalTok{prm <-}\StringTok{ }\NormalTok{t2 }\OperatorTok{-}\StringTok{ }\NormalTok{t3 }\CommentTok{#how many papers removed}
+\end{Highlighting}
+\end{Shaded}
+
+47 papers removed as didn't inc pred-prey spatial interaction 50 papers
+remaining
+
+\hypertarget{explore-data}{%
+\section{Explore data}\label{explore-data}}
+
+\hypertarget{which-biome-did-the-studies-occur-in}{%
+\subsection{Which biome did the studies occur
+in}\label{which-biome-did-the-studies-occur-in}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lw <-}\StringTok{ }\KeywordTok{with}\NormalTok{(lrev, }\KeywordTok{table}\NormalTok{(marine..terrestrial..fw))}
+\KeywordTok{write.csv}\NormalTok{(lw, }\DataTypeTok{file =} \StringTok{"./output/land-water-count.csv"}\NormalTok{)}
+\KeywordTok{ggplot}\NormalTok{(lrev, }\KeywordTok{aes}\NormalTok{(marine..terrestrial..fw)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_bar}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{theme_classic}\NormalTok{ () }\OperatorTok{+}\StringTok{ }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Study Location"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"No. Studies"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{lit-rev_files/figure-latex/are studies land or water based-1.pdf}
+
+\hypertarget{what-spatial-scale-did-the-studies-occur-at}{%
+\subsection{what spatial scale did the studies occur
+at}\label{what-spatial-scale-did-the-studies-occur-at}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lw <-}\StringTok{ }\KeywordTok{with}\NormalTok{(lrev, }\KeywordTok{table}\NormalTok{(Spatial.Scale))}
+\KeywordTok{write.csv}\NormalTok{(lw, }\DataTypeTok{file =} \StringTok{"./output/spatial-scale.csv"}\NormalTok{)}
+\KeywordTok{ggplot}\NormalTok{(lrev, }\KeywordTok{aes}\NormalTok{(Spatial.Scale)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_bar}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{theme_classic}\NormalTok{ () }\OperatorTok{+}\StringTok{ }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Spatial Scale"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"No. Studies"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{lit-rev_files/figure-latex/spatial scale-1.pdf}
+
+\hypertarget{what-region-did-the-studies-occur-in}{%
+\subsection{what `region' did the studies occur
+in}\label{what-region-did-the-studies-occur-in}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lw <-}\StringTok{ }\KeywordTok{with}\NormalTok{(lrev, }\KeywordTok{table}\NormalTok{(Region))}
+\KeywordTok{write.csv}\NormalTok{(lw, }\DataTypeTok{file =} \StringTok{"./output/region.csv"}\NormalTok{)}
+\KeywordTok{ggplot}\NormalTok{(lrev, }\KeywordTok{aes}\NormalTok{(Region)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_bar}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{theme_classic}\NormalTok{ () }\OperatorTok{+}\StringTok{ }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Region"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"No. Studies"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{lit-rev_files/figure-latex/region-1.pdf}
+
+\hypertarget{what-model-approach-did-the-studies-use}{%
+\subsection{what model approach did the studies
+use}\label{what-model-approach-did-the-studies-use}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lw <-}\StringTok{ }\KeywordTok{with}\NormalTok{(lrev, }\KeywordTok{table}\NormalTok{(Model.Approach))}
+\KeywordTok{write.csv}\NormalTok{(lw, }\DataTypeTok{file =} \StringTok{"./output/model-approach.csv"}\NormalTok{)}
+\KeywordTok{ggplot}\NormalTok{(lrev, }\KeywordTok{aes}\NormalTok{(Model.Approach)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_bar}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{theme_classic}\NormalTok{ () }\OperatorTok{+}\StringTok{ }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Model Approach"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"No. Studies"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{lit-rev_files/figure-latex/model approach-1.pdf}
+
+\hypertarget{what-model-family-did-the-studies-use}{%
+\subsection{what model family did the studies
+use}\label{what-model-family-did-the-studies-use}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lw <-}\StringTok{ }\KeywordTok{with}\NormalTok{(lrev, }\KeywordTok{table}\NormalTok{(ModelTypeSimple))}
+\KeywordTok{write.csv}\NormalTok{(lw, }\DataTypeTok{file =} \StringTok{"./output/ModelTypeSimple.csv"}\NormalTok{)}
+\KeywordTok{ggplot}\NormalTok{(lrev, }\KeywordTok{aes}\NormalTok{(ModelTypeSimple)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_bar}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{theme_classic}\NormalTok{ () }\OperatorTok{+}\StringTok{ }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Model Type"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"No. Studies"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.text.x =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{angle =} \DecValTok{45}\NormalTok{, }\DataTypeTok{hjust =} \DecValTok{1}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{lit-rev_files/figure-latex/Model Type simplifed-1.pdf}
+
+\hypertarget{what-model-algoritms-did-the-studies-use}{%
+\subsection{what model algoritms did the studies
+use}\label{what-model-algoritms-did-the-studies-use}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{malg <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"./data/model-alg-simple.csv"}\NormalTok{, }\DataTypeTok{header =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{stringsAsFactors =} \OtherTok{FALSE}\NormalTok{) }\CommentTok{#models split to one per entry}
+\NormalTok{lw <-}\StringTok{ }\KeywordTok{with}\NormalTok{(malg, }\KeywordTok{table}\NormalTok{(ModelAlgorithmSimple))}
+\KeywordTok{write.csv}\NormalTok{(lw, }\DataTypeTok{file =} \StringTok{"./output/ModelAlgorithmSimple.csv"}\NormalTok{)}
+\KeywordTok{ggplot}\NormalTok{(malg, }\KeywordTok{aes}\NormalTok{(ModelAlgorithmSimple)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_bar}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{theme_classic}\NormalTok{ () }\OperatorTok{+}\StringTok{ }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Model Algorithm"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"No. Studies"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{coord_flip}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{lit-rev_files/figure-latex/Model Algorithm-1.pdf} \#\#
+what predator class did the studies look at
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{malg <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"./data/pred-preyclass-simple.csv"}\NormalTok{, }\DataTypeTok{header =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{stringsAsFactors =} \OtherTok{FALSE}\NormalTok{) }\CommentTok{#models split to one per entry}
+\NormalTok{lw <-}\StringTok{ }\KeywordTok{with}\NormalTok{(malg, }\KeywordTok{table}\NormalTok{(PredatorClass))}
+\KeywordTok{write.csv}\NormalTok{(lw, }\DataTypeTok{file =} \StringTok{"./output/PredClass.csv"}\NormalTok{)}
+\KeywordTok{ggplot}\NormalTok{(malg, }\KeywordTok{aes}\NormalTok{(PredatorClass)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_bar}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{theme_classic}\NormalTok{ () }\OperatorTok{+}\StringTok{ }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Predator Class"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"No. Studies"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.text.x =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{angle =} \DecValTok{45}\NormalTok{, }\DataTypeTok{hjust =} \DecValTok{1}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{lit-rev_files/figure-latex/predator class-1.pdf}
+
+\hypertarget{what-predator-data-type-did-the-studies-use}{%
+\subsection{what predator data type did the studies
+use}\label{what-predator-data-type-did-the-studies-use}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lw <-}\StringTok{ }\KeywordTok{with}\NormalTok{(lrev, }\KeywordTok{table}\NormalTok{(PredatorDatatypeSimple))}
+\KeywordTok{write.csv}\NormalTok{(lw, }\DataTypeTok{file =} \StringTok{"./output/PredDataSimple.csv"}\NormalTok{)}
+\KeywordTok{ggplot}\NormalTok{(lrev, }\KeywordTok{aes}\NormalTok{(PredatorDatatypeSimple)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_bar}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{theme_classic}\NormalTok{ () }\OperatorTok{+}\StringTok{ }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Predator Data"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"No. Studies"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{coord_flip}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{lit-rev_files/figure-latex/predator data-1.pdf}
+
+\hypertarget{what-prey-class-did-the-studies-use}{%
+\subsection{what prey class did the studies
+use}\label{what-prey-class-did-the-studies-use}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{malg <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"./data/pred-preyclass-simple.csv"}\NormalTok{, }\DataTypeTok{header =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{stringsAsFactors =} \OtherTok{FALSE}\NormalTok{) }\CommentTok{#models split to one per entry}
+\NormalTok{lw <-}\StringTok{ }\KeywordTok{with}\NormalTok{(malg, }\KeywordTok{table}\NormalTok{(PredatorClass))}
+\KeywordTok{write.csv}\NormalTok{(lw, }\DataTypeTok{file =} \StringTok{"./output/PreyClass.csv"}\NormalTok{)}
+\KeywordTok{ggplot}\NormalTok{(malg, }\KeywordTok{aes}\NormalTok{(PredatorClass)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_bar}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{theme_classic}\NormalTok{ () }\OperatorTok{+}\StringTok{ }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Prey Class"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"No. Studies"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.text.x =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{angle =} \DecValTok{45}\NormalTok{, }\DataTypeTok{hjust =} \DecValTok{1}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{lit-rev_files/figure-latex/prey class-1.pdf}
+
+\hypertarget{what-prey-data-type-did-the-studies-use}{%
+\subsection{what prey data type did the studies
+use}\label{what-prey-data-type-did-the-studies-use}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lw <-}\StringTok{ }\KeywordTok{with}\NormalTok{(lrev, }\KeywordTok{table}\NormalTok{(PreyDataTypeSimple))}
+\KeywordTok{write.csv}\NormalTok{(lw, }\DataTypeTok{file =} \StringTok{"./output/PreyDataSimple.csv"}\NormalTok{)}
+\KeywordTok{ggplot}\NormalTok{(lrev, }\KeywordTok{aes}\NormalTok{(PreyDataTypeSimple)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_bar}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{theme_classic}\NormalTok{ () }\OperatorTok{+}\StringTok{ }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Prey Data"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"No. Studies"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{coord_flip}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{lit-rev_files/figure-latex/prey data-1.pdf}
+
+\hypertarget{did-the-studies-look-at-the-influence-of-prey-on-predator-distribution-prey-pred-predator-on-prey-pred-prey-or-co-occurrence-or-niche---one-study-that-possibly-shouldnt-be-included}{%
+\section{did the studies look at the influence of prey on predator
+`distribution' (prey-pred), predator on prey (pred-prey), or
+co-occurrence (or niche - one study, that possibly shouldn't be
+included)}\label{did-the-studies-look-at-the-influence-of-prey-on-predator-distribution-prey-pred-predator-on-prey-pred-prey-or-co-occurrence-or-niche---one-study-that-possibly-shouldnt-be-included}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lw <-}\StringTok{ }\KeywordTok{with}\NormalTok{(lrev, }\KeywordTok{table}\NormalTok{(predator.impact.on.prey.or.prey.impacton.on.both))}
+\KeywordTok{write.csv}\NormalTok{(lw, }\DataTypeTok{file =} \StringTok{"./output/Prey-pred-int.csv"}\NormalTok{)}
+\KeywordTok{ggplot}\NormalTok{(lrev, }\KeywordTok{aes}\NormalTok{(predator.impact.on.prey.or.prey.impacton.on.both)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_bar}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{theme_classic}\NormalTok{ () }\OperatorTok{+}\StringTok{ }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Who Drives Who"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"No. Studies"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{lit-rev_files/figure-latex/prey-pred or pred-prey-1.pdf}
+
+\end{document}

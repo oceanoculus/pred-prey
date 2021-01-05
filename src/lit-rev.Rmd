@@ -1,15 +1,26 @@
 ---
 title: "lit-rev"
-output: html_notebook
+output:
+  pdf_document: default
+  html_notebook: default
 ---
 
-lit review quick exploration 
+lit review quick exploration.
+
+Search done in Web of Science
+
+Search term used:
+
+TS = ("species distribution" AND model AND predator AND prey)
+*TS = topic search
 
 ```{r pre-install packages, include=FALSE}
 packages <- c("ggplot2") 
 source("./src/ipak.R")
 ipak(packages)
 ```
+
+# Load data and remove inapporpriate studies
 
 ```{r load raw data}
 lrev <- read.csv("./data/sdm-lit-44papers.csv", header = TRUE, stringsAsFactors = FALSE)
@@ -18,6 +29,8 @@ t1 <- nrow(lrev) #how many papers did the search find
 ```
 
 There are a total of 105 papers
+
+## remove studies that aren't origianl research
 
 ```{r remove non-suitable studies}
 lrev <- subset(lrev, review..comment..opinion..not.an.article. == "no")
@@ -28,6 +41,8 @@ prm <- t1 - t2 #how many papers removed
 8 papers removed as not original research
 97 papers remaining
 
+## remove studies that don't include a predator-prey spatial interaction
+
 ```{r remove papers that didnt inc pred-prey spatial interaction}
 lrev <- subset(lrev, Does.it.include.predator.prey.interaction.and.distribution == "yes")
 t3 <- nrow(lrev) #how many papers remaining
@@ -37,11 +52,18 @@ prm <- t2 - t3 #how many papers removed
 47 papers removed as didn't inc pred-prey spatial interaction
 50 papers remaining
 
-```{r are studies land or water based?}
+# Explore data
+
+
+## Which biome did the studies occur in
+
+```{r are studies land or water based}
 lw <- with(lrev, table(marine..terrestrial..fw))
 write.csv(lw, file = "./output/land-water-count.csv")
 ggplot(lrev, aes(marine..terrestrial..fw)) + geom_bar() + theme_classic () + labs(x = "Study Location", y = "No. Studies")
 ```
+
+## what spatial scale did the studies occur at
 
 ```{r spatial scale}
 lw <- with(lrev, table(Spatial.Scale))
@@ -49,11 +71,15 @@ write.csv(lw, file = "./output/spatial-scale.csv")
 ggplot(lrev, aes(Spatial.Scale)) + geom_bar() + theme_classic () + labs(x = "Spatial Scale", y = "No. Studies")
 ```
 
+## what 'region' did the studies occur in
+
 ```{r region}
 lw <- with(lrev, table(Region))
 write.csv(lw, file = "./output/region.csv")
 ggplot(lrev, aes(Region)) + geom_bar() + theme_classic () + labs(x = "Region", y = "No. Studies")
 ```
+
+## what model approach did the studies use
 
 ```{r model approach}
 lw <- with(lrev, table(Model.Approach))
@@ -61,11 +87,15 @@ write.csv(lw, file = "./output/model-approach.csv")
 ggplot(lrev, aes(Model.Approach)) + geom_bar() + theme_classic () + labs(x = "Model Approach", y = "No. Studies")
 ```
 
+## what model family did the studies use
+
 ```{r Model Type simplifed}
 lw <- with(lrev, table(ModelTypeSimple))
 write.csv(lw, file = "./output/ModelTypeSimple.csv")
 ggplot(lrev, aes(ModelTypeSimple)) + geom_bar() + theme_classic () + labs(x = "Model Type", y = "No. Studies") + theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
+
+## what model algoritms did the studies use
 
 ```{r Model Algorithm}
 malg <- read.csv("./data/model-alg-simple.csv", header = TRUE, stringsAsFactors = FALSE) #models split to one per entry
@@ -73,6 +103,8 @@ lw <- with(malg, table(ModelAlgorithmSimple))
 write.csv(lw, file = "./output/ModelAlgorithmSimple.csv")
 ggplot(malg, aes(ModelAlgorithmSimple)) + geom_bar() + theme_classic () + labs(x = "Model Algorithm", y = "No. Studies") + coord_flip()
 ```
+## what predator class did the studies look at
+
 ```{r predator class}
 malg <- read.csv("./data/pred-preyclass-simple.csv", header = TRUE, stringsAsFactors = FALSE) #models split to one per entry
 lw <- with(malg, table(PredatorClass))
@@ -80,12 +112,15 @@ write.csv(lw, file = "./output/PredClass.csv")
 ggplot(malg, aes(PredatorClass)) + geom_bar() + theme_classic () + labs(x = "Predator Class", y = "No. Studies") + theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
 
+## what predator data type did the studies use
+
 ```{r predator data}
 lw <- with(lrev, table(PredatorDatatypeSimple))
 write.csv(lw, file = "./output/PredDataSimple.csv")
 ggplot(lrev, aes(PredatorDatatypeSimple)) + geom_bar() + theme_classic () + labs(x = "Predator Data", y = "No. Studies") + coord_flip()
 ```
 
+## what prey class did the studies use
 
 ```{r prey class}
 malg <- read.csv("./data/pred-preyclass-simple.csv", header = TRUE, stringsAsFactors = FALSE) #models split to one per entry
@@ -94,11 +129,15 @@ write.csv(lw, file = "./output/PreyClass.csv")
 ggplot(malg, aes(PredatorClass)) + geom_bar() + theme_classic () + labs(x = "Prey Class", y = "No. Studies") + theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
 
+## what prey data type did the studies use
+
 ```{r prey data}
 lw <- with(lrev, table(PreyDataTypeSimple))
 write.csv(lw, file = "./output/PreyDataSimple.csv")
 ggplot(lrev, aes(PreyDataTypeSimple)) + geom_bar() + theme_classic () + labs(x = "Prey Data", y = "No. Studies") + coord_flip()
 ```
+
+# did the studies look at the influence of prey on predator 'distribution' (prey-pred), predator on prey (pred-prey), or co-occurrence (or niche - one study, that possibly shouldn't be included)
 
 ```{r prey-pred or pred-prey}
 lw <- with(lrev, table(predator.impact.on.prey.or.prey.impacton.on.both))
