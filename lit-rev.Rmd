@@ -1,0 +1,35 @@
+---
+title: "lit-rev"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r load raw data}
+lrev <- read.csv("./data/sdm-lit-44papers.csv", header = TRUE, stringsAsFactors = FALSE)
+lrev <- lrev[!is.na(lrev$Year), ] #remove any rows with no data
+t1 <- nrow(lrev) #how many papers did the search find
+```
+
+There are a total of 105 papers
+
+```{r remove non-suitable studies}
+lrev <- subset(lrev, review..comment..opinion..not.an.article. == "no")
+t2 <- nrow(lrev) #how many papers remaining
+prm <- t1 - t2 #how many papers removed
+```
+
+8 papers removed as not original research
+97 papers remaining
+
+```{r remove papers that didnt inc pred-prey spatial interaction}
+lrev <- subset(lrev, Does.it.include.predator.prey.interaction.and.distribution == "yes")
+t3 <- nrow(lrev) #how many papers remaining
+prm <- t2 - t3 #how many papers removed
+```
+
+47 papers removed as didn't inc pred-prey spatial interaction
+50 papers remaining
+
