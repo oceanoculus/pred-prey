@@ -15,7 +15,7 @@ TS = ("species distribution" AND model AND predator AND prey)
 *TS = topic search
 
 ```{r pre-install packages, include=FALSE}
-packages <- c("ggplot2") 
+packages <- c("ggplot2", "dplyr") 
 source("./src/ipak.R")
 ipak(packages)
 ```
@@ -68,7 +68,7 @@ ggplot(lrev, aes(marine..terrestrial..fw)) + geom_bar() + theme_classic () + lab
 ```{r spatial scale}
 lw <- with(lrev, table(Spatial.Scale))
 write.csv(lw, file = "./output/spatial-scale.csv")
-ggplot(lrev, aes(Spatial.Scale)) + geom_bar() + theme_classic () + labs(x = "Spatial Scale", y = "No. Studies")
+ggplot(lrev, aes(Spatial.Scale, fill = marine..terrestrial..fw)) + geom_bar() + theme_classic () + labs(x = "Spatial Scale", y = "No. Studies")
 ```
 
 ## what 'region' did the studies occur in
@@ -84,7 +84,7 @@ ggplot(lrev, aes(Region)) + geom_bar() + theme_classic () + labs(x = "Region", y
 ```{r model approach}
 lw <- with(lrev, table(Model.Approach))
 write.csv(lw, file = "./output/model-approach.csv")
-ggplot(lrev, aes(Model.Approach)) + geom_bar() + theme_classic () + labs(x = "Model Approach", y = "No. Studies")
+ggplot(lrev, aes(Model.Approach, fill = marine..terrestrial..fw)) + geom_bar() + theme_classic () + labs(x = "Model Approach", y = "No. Studies")
 ```
 
 ## what model family did the studies use
@@ -92,7 +92,7 @@ ggplot(lrev, aes(Model.Approach)) + geom_bar() + theme_classic () + labs(x = "Mo
 ```{r Model Type simplifed}
 lw <- with(lrev, table(ModelTypeSimple))
 write.csv(lw, file = "./output/ModelTypeSimple.csv")
-ggplot(lrev, aes(ModelTypeSimple)) + geom_bar() + theme_classic () + labs(x = "Model Type", y = "No. Studies") + theme(axis.text.x = element_text(angle = 45, hjust = 1))
+ggplot(lrev, aes(ModelTypeSimple, fill = marine..terrestrial..fw)) + geom_bar() + theme_classic () + labs(x = "Model Type", y = "No. Studies") + theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
 
 ## what model algoritms did the studies use
@@ -142,6 +142,6 @@ ggplot(lrev, aes(PreyDataTypeSimple)) + geom_bar() + theme_classic () + labs(x =
 ```{r prey-pred or pred-prey}
 lw <- with(lrev, table(predator.impact.on.prey.or.prey.impacton.on.both))
 write.csv(lw, file = "./output/Prey-pred-int.csv")
-ggplot(lrev, aes(predator.impact.on.prey.or.prey.impacton.on.both)) + geom_bar() + theme_classic () + labs(x = "Who Drives Who", y = "No. Studies")
+ggplot(lrev, aes(predator.impact.on.prey.or.prey.impacton.on.both, fill = marine..terrestrial..fw)) + geom_bar() + theme_classic () + labs(x = "Who Drives Who", y = "No. Studies")
 ```
 

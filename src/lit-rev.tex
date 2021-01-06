@@ -183,7 +183,7 @@ at}\label{what-spatial-scale-did-the-studies-occur-at}}
 \begin{Highlighting}[]
 \NormalTok{lw <-}\StringTok{ }\KeywordTok{with}\NormalTok{(lrev, }\KeywordTok{table}\NormalTok{(Spatial.Scale))}
 \KeywordTok{write.csv}\NormalTok{(lw, }\DataTypeTok{file =} \StringTok{"./output/spatial-scale.csv"}\NormalTok{)}
-\KeywordTok{ggplot}\NormalTok{(lrev, }\KeywordTok{aes}\NormalTok{(Spatial.Scale)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_bar}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{theme_classic}\NormalTok{ () }\OperatorTok{+}\StringTok{ }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Spatial Scale"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"No. Studies"}\NormalTok{)}
+\KeywordTok{ggplot}\NormalTok{(lrev, }\KeywordTok{aes}\NormalTok{(Spatial.Scale, }\DataTypeTok{fill =}\NormalTok{ marine..terrestrial..fw)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_bar}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{theme_classic}\NormalTok{ () }\OperatorTok{+}\StringTok{ }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Spatial Scale"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"No. Studies"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -211,7 +211,7 @@ use}\label{what-model-approach-did-the-studies-use}}
 \begin{Highlighting}[]
 \NormalTok{lw <-}\StringTok{ }\KeywordTok{with}\NormalTok{(lrev, }\KeywordTok{table}\NormalTok{(Model.Approach))}
 \KeywordTok{write.csv}\NormalTok{(lw, }\DataTypeTok{file =} \StringTok{"./output/model-approach.csv"}\NormalTok{)}
-\KeywordTok{ggplot}\NormalTok{(lrev, }\KeywordTok{aes}\NormalTok{(Model.Approach)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_bar}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{theme_classic}\NormalTok{ () }\OperatorTok{+}\StringTok{ }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Model Approach"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"No. Studies"}\NormalTok{)}
+\KeywordTok{ggplot}\NormalTok{(lrev, }\KeywordTok{aes}\NormalTok{(Model.Approach, }\DataTypeTok{fill =}\NormalTok{ marine..terrestrial..fw)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_bar}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{theme_classic}\NormalTok{ () }\OperatorTok{+}\StringTok{ }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Model Approach"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"No. Studies"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -225,7 +225,7 @@ use}\label{what-model-family-did-the-studies-use}}
 \begin{Highlighting}[]
 \NormalTok{lw <-}\StringTok{ }\KeywordTok{with}\NormalTok{(lrev, }\KeywordTok{table}\NormalTok{(ModelTypeSimple))}
 \KeywordTok{write.csv}\NormalTok{(lw, }\DataTypeTok{file =} \StringTok{"./output/ModelTypeSimple.csv"}\NormalTok{)}
-\KeywordTok{ggplot}\NormalTok{(lrev, }\KeywordTok{aes}\NormalTok{(ModelTypeSimple)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_bar}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{theme_classic}\NormalTok{ () }\OperatorTok{+}\StringTok{ }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Model Type"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"No. Studies"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.text.x =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{angle =} \DecValTok{45}\NormalTok{, }\DataTypeTok{hjust =} \DecValTok{1}\NormalTok{))}
+\KeywordTok{ggplot}\NormalTok{(lrev, }\KeywordTok{aes}\NormalTok{(ModelTypeSimple, }\DataTypeTok{fill =}\NormalTok{ marine..terrestrial..fw)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_bar}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{theme_classic}\NormalTok{ () }\OperatorTok{+}\StringTok{ }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Model Type"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"No. Studies"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.text.x =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{angle =} \DecValTok{45}\NormalTok{, }\DataTypeTok{hjust =} \DecValTok{1}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -311,7 +311,7 @@ included)}\label{did-the-studies-look-at-the-influence-of-prey-on-predator-distr
 \begin{Highlighting}[]
 \NormalTok{lw <-}\StringTok{ }\KeywordTok{with}\NormalTok{(lrev, }\KeywordTok{table}\NormalTok{(predator.impact.on.prey.or.prey.impacton.on.both))}
 \KeywordTok{write.csv}\NormalTok{(lw, }\DataTypeTok{file =} \StringTok{"./output/Prey-pred-int.csv"}\NormalTok{)}
-\KeywordTok{ggplot}\NormalTok{(lrev, }\KeywordTok{aes}\NormalTok{(predator.impact.on.prey.or.prey.impacton.on.both)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_bar}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{theme_classic}\NormalTok{ () }\OperatorTok{+}\StringTok{ }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Who Drives Who"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"No. Studies"}\NormalTok{)}
+\KeywordTok{ggplot}\NormalTok{(lrev, }\KeywordTok{aes}\NormalTok{(predator.impact.on.prey.or.prey.impacton.on.both, }\DataTypeTok{fill =}\NormalTok{ marine..terrestrial..fw)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_bar}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{theme_classic}\NormalTok{ () }\OperatorTok{+}\StringTok{ }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Who Drives Who"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"No. Studies"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
