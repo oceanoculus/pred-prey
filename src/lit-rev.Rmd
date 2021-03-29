@@ -124,9 +124,9 @@ ggplot(lrev, aes(PredatorDatatypeSimple)) + geom_bar() + theme_classic () + labs
 
 ```{r prey class}
 malg <- read.csv("./data/pred-preyclass-simple.csv", header = TRUE, stringsAsFactors = FALSE) #models split to one per entry
-lw <- with(malg, table(PredatorClass))
+lw <- with(malg, table(PreyClass))
 write.csv(lw, file = "./output/PreyClass.csv")
-ggplot(malg, aes(PredatorClass)) + geom_bar() + theme_classic () + labs(x = "Prey Class", y = "No. Studies") + theme(axis.text.x = element_text(angle = 45, hjust = 1))
+ggplot(malg, aes(PreyClass)) + geom_bar() + theme_classic () + labs(x = "Prey Class", y = "No. Studies") + theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
 
 ## what prey data type did the studies use
